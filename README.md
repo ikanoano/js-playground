@@ -17,4 +17,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## png files
 Obtained from https://github.com/mdn/learning-area/ licensed under CC0.
 
+## can-store
+Obtained from https://github.com/mdn/learning-area/tree/master/javascript/apis/fetching-data/can-store licensed under CC0.
+
 
