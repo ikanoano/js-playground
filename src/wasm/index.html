@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>Load WASM</title>
+    <script type='text/javascript'>
+      window.onload = function() {
+        let loader = document.createElement('script');
+        loader.src = 'hello.js';
+        document.body.append(loader);
+        loader.onload = function() {
+          Module.onRuntimeInitialized = function() {
+            // https://emscripten.org/docs/porting/connecting_cpp_and_javascript/Interacting-with-code.html`
+            let p = document.querySelector('#output');
+            Module.ccall('myFunction'); // directly call myFunction that takes no arg and returns nothing
+            const plus1 = Module.cwrap('plus1', 'number', ['number']);  // wrap 'plus1' function that takes one int and returns one int
+            p.textContent = '1 + 1 is ' + plus1(1);
+          }
+        };
+      }
+    </script>
+  </head>
+  <body>
+    <p id="output">no output</p>
+  </body>
+</html>
